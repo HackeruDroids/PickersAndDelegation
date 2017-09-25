@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6yc-Wp-fKG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,35 +19,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFI-vJ-AKd">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fVG-Z3-giz">
-                                <date key="date" timeIntervalSinceReferenceDate="528043030.57732302">
-                                    <!--2017-09-25 14:37:10 +0000-->
-                                </date>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMS-a9-D0q">
                                 <connections>
-                                    <action selector="didPickDate:" destination="BYZ-38-t0r" eventType="valueChanged" id="5df-DS-RLT"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="F4o-wV-96x"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uwk-Rt-0sy"/>
                                 </connections>
-                            </datePicker>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31f-ZM-2gT">
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="fVG-Z3-giz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="IK2-pT-qpB"/>
-                            <constraint firstItem="RFI-vJ-AKd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Twz-FT-e7s"/>
-                            <constraint firstItem="RFI-vJ-AKd" firstAttribute="top" secondItem="fVG-Z3-giz" secondAttribute="bottom" constant="8" id="pJm-Qc-edU"/>
-                            <constraint firstAttribute="trailing" secondItem="fVG-Z3-giz" secondAttribute="trailing" id="uJC-el-fXl"/>
-                            <constraint firstItem="fVG-Z3-giz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uk0-om-dFk"/>
+                            <constraint firstItem="dMS-a9-D0q" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="707-14-hHG"/>
+                            <constraint firstItem="dMS-a9-D0q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="70X-PF-fZ1"/>
+                            <constraint firstItem="31f-ZM-2gT" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="CrD-Ew-Keg"/>
+                            <constraint firstAttribute="trailing" secondItem="dMS-a9-D0q" secondAttribute="trailing" id="krm-XN-qfh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="31f-ZM-2gT" secondAttribute="bottom" id="was-i2-Qw2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="RFI-vJ-AKd" id="cDv-Hs-Gfh"/>
+                        <outlet property="cityPicker" destination="dMS-a9-D0q" id="pwz-BW-uYo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-262" y="38"/>
+        </scene>
+        <!--Slot Machine View Controller-->
+        <scene sceneID="LHj-DZ-KBa">
+            <objects>
+                <viewController id="6yc-Wp-fKG" customClass="SlotMachineViewController" customModule="Delegation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dMm-wg-Xfi"/>
+                        <viewControllerLayoutGuide type="bottom" id="yR3-T4-7ao"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oka-GR-qZf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s44-fn-6yK">
+                                <connections>
+                                    <outlet property="dataSource" destination="6yc-Wp-fKG" id="SIX-sj-OWQ"/>
+                                    <outlet property="delegate" destination="6yc-Wp-fKG" id="7VE-c2-P1C"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-Pl-xTo">
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="spin:" destination="6yc-Wp-fKG" eventType="touchUpInside" id="Ee5-Ey-gNy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yR3-T4-7ao" firstAttribute="top" secondItem="vf5-Pl-xTo" secondAttribute="bottom" id="Ejt-46-fn0"/>
+                            <constraint firstItem="vf5-Pl-xTo" firstAttribute="trailing" secondItem="Oka-GR-qZf" secondAttribute="trailingMargin" id="FnV-eP-L5S"/>
+                            <constraint firstItem="s44-fn-6yK" firstAttribute="leading" secondItem="Oka-GR-qZf" secondAttribute="leading" id="Lsi-Gh-OMQ"/>
+                            <constraint firstAttribute="trailing" secondItem="s44-fn-6yK" secondAttribute="trailing" id="gTY-Ff-GkM"/>
+                            <constraint firstItem="s44-fn-6yK" firstAttribute="top" secondItem="dMm-wg-Xfi" secondAttribute="bottom" id="hC5-x5-WcO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slotMachine" destination="s44-fn-6yK" id="XoX-gv-7Xj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n40-w8-GSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="39"/>
         </scene>
     </scenes>
 </document>
